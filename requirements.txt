@@ -1,0 +1,9 @@
+baidu_aip==4.16.11
+openai==0.27.7
+playsound==1.3.0
+pvporcupine==2.2.0
+PyAudio==0.2.13
+pygame==2.4.0
+pygame==1.9.6
+Requests==2.31.0
+SpeechRecognition==3.10.0
