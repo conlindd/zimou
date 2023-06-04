@@ -17,6 +17,9 @@ import pyaudio
 openai_api_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # 你的openai key
 PICOVOICE_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # 你的picovoice key
 keyword_path = './speechmodules/xxxxxxxxxxxx-pi_v2_2_0.ppn'  # 你的唤醒词检测离线文件地址(选树莓派)
+
+#中文模型地址 porcupine_params_zh.pv下载地址 :https://github.com/Picovoice/porcupine/tree/master/lib/common
+# model_path = './speechmodules/porcupine_params_zh.pv'  #如果你用中文唤醒词,把这个注释打开
 Baidu_APP_ID = 'xxxxxx'  # 你的百度APP_ID
 Baidu_API_KEY = 'xxxxxxxx'  # 你的百度API_KEY
 Baidu_SECRET_KEY = 'xxxxxxxxxxxxxxxxx'  # 你的百度SECRET_KEY
@@ -66,6 +69,7 @@ def run(picowakeword, asr, tts, openai_chat_module):
 
 def Orator():
     picowakeword = PicoWakeWord(PICOVOICE_API_KEY, keyword_path)
+    # picowakeword = PicoWakeWord(PICOVOICE_API_KEY, keyword_path,model_path) #如果你用中文唤醒词,把这个注释打开,上边的注释
     # 使用百度的语音识别
     asr=BaiduASR(Baidu_APP_ID,Baidu_API_KEY,Baidu_SECRET_KEY)
     tts=BaiduTTS(Baidu_APP_ID,Baidu_API_KEY,Baidu_SECRET_KEY)

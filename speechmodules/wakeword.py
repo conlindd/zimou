@@ -8,8 +8,8 @@ import pyaudio
 
 class PicoWakeWord:
     # model_path=None 表示不配置唤醒词的语言
-    # def __init__(self, PICOVOICE_API_KEY, keyword_path, model_path):
     def __init__(self, PICOVOICE_API_KEY, keyword_path, model_path=None):
+    # def __init__(self, PICOVOICE_API_KEY, keyword_path, model_path): #中文唤醒词把这个打开 上边的注释掉
         self.PICOVOICE_API_KEY = PICOVOICE_API_KEY
         self.keyword_path = keyword_path
         self.model_path = model_path
