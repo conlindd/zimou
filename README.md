@@ -4,7 +4,7 @@
 
 ## 0.效果展示
 
-<iframe src="//player.bilibili.com/player.html?aid=741977428&bvid=BV1Lk4y1p7uu&cid=1152725799&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+https://www.bilibili.com/video/BV1Lk4y1p7uu?share_source=copy_web
 
 ## 1.准备硬件材料
 
