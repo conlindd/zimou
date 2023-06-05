@@ -12,9 +12,7 @@ from chatmodules.openai_chat_module import OpenaiChatModule
 import struct
 import os
 from speechmodules.music import MusicPlayer
-
-
-
+import pyaudio
 # 参数填写
 # os.environ["SERPER_API_KEY"] = ""  # 你的serper key
 openai_api_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # 你的openai key
