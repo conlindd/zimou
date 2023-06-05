@@ -11,7 +11,10 @@ from chatmodules.openai_chat_module import OpenaiChatModule
 # import asyncio
 import struct
 import os
-import pyaudio
+from speechmodules.music import MusicPlayer
+
+
+
 # 参数填写
 # os.environ["SERPER_API_KEY"] = ""  # 你的serper key
 openai_api_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # 你的openai key
@@ -35,6 +38,12 @@ import speech_recognition as sr
 
 def run(picowakeword, asr, tts, openai_chat_module):
     print("请说 'hi xxxx'!")
+
+    # 提示音
+    player = MusicPlayer()
+    player.play("resources/ding.wav")
+    # player.quit()
+
     while True:  # 需要始终保持对唤醒词的监听
         audio_obj = picowakeword.stream.read(picowakeword.porcupine.frame_length, exception_on_overflow=False)
         audio_obj_unpacked = struct.unpack_from("h" * picowakeword.porcupine.frame_length, audio_obj)
@@ -46,6 +55,12 @@ def run(picowakeword, asr, tts, openai_chat_module):
 
             print("嗯,我在,请讲！")
             tts.text_to_speech_and_play("嗯,我在,请讲！")
+
+            # 提示音
+            player = MusicPlayer()
+            player.play("resources/ding.wav")
+            # player.quit()
+
             # asyncio.run(tts.text_to_speech_and_play("嗯,我在,请讲！"))  # 如果用Edgetts需要使用异步执行
             while True:
                 try:
@@ -65,6 +80,10 @@ def run(picowakeword, asr, tts, openai_chat_module):
                     print("等待超时，请再说一遍。")
                     continue
                 # asyncio.run(tts.text_to_speech_and_play('嗯'+res))  # 如果用Edgetts需要使用异步执行
+                # 提示音
+                player = MusicPlayer()
+                player.play("resources/ding.wav")
+                # player.quit()
 
 
 def Orator():
@@ -116,4 +135,3 @@ if __name__ == '__main__':
 # 设置采样率为 16000 Hz
     stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True)
     Orator()
-
